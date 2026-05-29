@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Cartier Booking - nơi mọi kết nối đều có chủ đích" />
+  <title>Cartier Booking - nơi mọi kết nối đều có chủ đích</title>
+  <link rel="icon" href="https://i.postimg.cc/jSXFhsm7/cartier-logo.jpg" type="image/jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lobster&family=Playwrite+GB+J&family=Rowdies:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
+  <div class="top-bar">24/7 Sẵn sàng · Nói chuyện · Oncam · Kết nối tức thì</div>
+
+  <header class="header">
+    <a href="#" class="logo">
+      <img src="https://i.postimg.cc/jSXFhsm7/cartier-logo.jpg" alt="" class="logo-img" width="48" height="48"
+        decoding="async" />
+      <span class="logo-brand">Cartier</span>
+      <span class="logo-wordmark">BOOKING</span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#owner">Owner</a>
+      <a href="#lorette">Lorette</a>
+      <a href="#calder">Calder</a>
+      <a href="#orders">Đơn đặt</a>
+    </nav>
+    <div class="header-actions">
+      <button type="button" class="btn btn-ghost btn-sm" id="becomeBtn">Become L&C</button>
+      <button type="button" class="btn btn-primary btn-sm" id="headerBookBtn">Đặt lịch</button>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-badge reveal">24/7 online · Nói chuyện · Oncam</div>
+        <h1 class="hero-title reveal">
+          Kiếm tìm<br />
+          <span class="gradient-text">Người kết nối</span>
+        </h1>
+        <p class="hero-desc reveal">
+          Booking Nói chuyện, Chơi game, Xem tarot, ...
+          Để mọi trái tim cô đơn đều có nơi về
+        </p>
+        <div class="search-bar reveal">
+          <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+          </svg>
+          <input type="search" id="searchInput" placeholder="Tìm người nói chuyện, chơi game,..." autocomplete="off" />
+          <button type="button" class="btn btn-primary" id="searchBtn">Tìm kiếm</button>
+        </div>
+        <div class="hero-stats reveal">
+          <div><strong id="statOwner">3</strong><span>OWNER</span></div>
+          <div><strong id="statCoowner">5</strong><span>CO-OWNER</span></div>
+          <div><strong id="statAdmin">2</strong><span>ADMIN</span></div>
+          <div><strong id="statSup">3</strong><span>SUPPORTER</span></div>
+          <div><strong id="statVipp">3</strong><span>VIP PLAYER</span></div>
+          <div><strong id="statLorette">57</strong><span>LORETTE</span></div>
+          <div><strong id="statCalder">8</strong><span>CALDER</span></div>
+        </div>
+      </div>
+      <div class="hero-visual reveal" aria-hidden="true">
+        <div class="featured-mini" id="heroFeatured"></div>
+      </div>
+    </section>
+
+    <section class="games-strip" id="games">
+      <div class="section-row">
+        <h2 class="section-label">Danh mục</h2>
+        <button type="button" class="link-btn" id="clearFilter">Xóa bộ lọc</button>
+      </div>
+      <div class="game-chips" id="gameChips"></div>
+      <p class="category-empty" id="categoryEmpty" hidden>Chưa có hồ sơ trong danh mục này.</p>
+    </section>
+
+    <section class="players-section players-section--owner" id="owner">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title reveal">OWNER</h2>
+          <p class="section-sub reveal" id="ownerCount">VIP Profile · Ban quản trị</p>
+        </div>
+      </div>
+      <div class="player-grid player-grid--owner" id="ownerGrid"></div>
+      <p class="no-results" id="ownerNoResults" hidden>Không tìm thấy Owner.</p>
+    </section>
+
+    <section class="players-section players-section--coowner" id="coowner">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title reveal">CO-OWNER</h2>
+          <p class="section-sub reveal" id="coownerCount">VIP Profile · Đồng sở hữu</p>
+        </div>
+      </div>
+      <div class="player-grid player-grid--coowner" id="coownerGrid"></div>
+      <p class="no-results" id="coownerNoResults" hidden>Không tìm thấy Co-owner.</p>
+    </section>
+
+    <section class="players-section players-section--admin" id="admin">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title reveal">ADMIN</h2>
+          <p class="section-sub reveal" id="adminCount">Quản trị viên · Hỗ trợ & game</p>
+        </div>
+      </div>
+      <div class="player-grid player-grid--admin" id="adminGrid"></div>
+      <p class="no-results" id="adminNoResults" hidden>Không tìm thấy Admin.</p>
+    </section>
+
+    <section class="players-section players-section--sup" id="sup">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title reveal">SUPPORTER</h2>
+          <p class="section-sub reveal" id="supCount">Supporter · Hỗ trợ mỗi khi bạn cần</p>
+        </div>
+      </div>
+      <div class="player-grid player-grid--sup" id="supGrid"></div>
+      <p class="no-results" id="supNoResults" hidden>Không tìm thấy Supporter.</p>
+    </section>
+
+    <section class="players-section players-section--vipp" id="vipp">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title reveal">VIP PLAYER</h2>
+          <p class="section-sub reveal" id="vippCount">VIP Player · Ưu tiên đặt lịch</p>
+        </div>
+      </div>
+      <div class="player-grid player-grid--vipp" id="vippGrid"></div>
+      <p class="no-results" id="vippNoResults" hidden>Chưa có VIP Player. Sắp cập nhật.</p>
+    </section>
+
+    <section class="players-section players-section--lorette" id="lorette">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title reveal">LORETTE</h2>
+          <p class="section-sub reveal" id="loretteCount">Những người đẹp nhất Cartier</p>
+        </div>
+        <div class="sort-wrap reveal">
+          <label for="sortSelect" class="sr-only">Sort by</label>
+          <select id="sortSelect" class="sort-select">
+            <option value="recommended">Recommended</option>
+            <option value="rating">Highest rated</option>
+            <option value="online">Online first</option>
+          </select>
+        </div>
+      </div>
+      <div class="player-grid" id="loretteGrid"></div>
+      <p class="no-results" id="loretteNoResults" hidden>Không tìm thấy Lorette phù hợp.</p>
+    </section>
+
+    <section class="players-section players-section--calder" id="calder">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title reveal">CALDER</h2>
+          <p class="section-sub reveal" id="calderCount">Calder · Lên rank thì tìm bọn anh</p>
+        </div>
+      </div>
+      <div class="player-grid" id="calderGrid"></div>
+      <p class="no-results" id="calderNoResults" hidden>Không tìm thấy Calder phù hợp.</p>
+    </section>
+
+    <section class="orders-section" id="orders">
+      <div class="section-header">
+        <h2 class="section-title reveal">Đơn đặt của tôi</h2>
+        <p class="section-sub reveal">Lịch đã đặt trên thiết bị này</p>
+      </div>
+      <div class="orders-list" id="ordersList">
+        <p class="orders-empty" id="ordersEmpty">Chưa có đơn nào. Hãy đặt lịch với Lorette hoặc Calder.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="logo logo-sm">
+          <img src="https://i.postimg.cc/jSXFhsm7/cartier-logo.jpg" alt="" class="logo-img" width="40" height="40"
+            decoding="async" />
+          <span class="logo-brand">Cartier</span>
+          <span class="logo-wordmark">BOOKING</span>
+        </a>
+        <p>Nền tảng kết nối hàng đầu — Booking nói chuyện, oncam và đồng hành cùng bạn mọi lúc.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Liên hệ</h4>
+        <ul>
+          <li>
+            <a href="https://discord.gg/cartierbooking" target="_blank" rel="noopener noreferrer">Discord:
+              https://discord.gg/cartierbooking</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-bottom">© 2026 Cartier Booking. Tất cả quyền được bảo lưu.</p>
+  </footer>
+
+  <div class="modal-overlay" id="bookingModal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button type="button" class="modal-close" id="modalClose" aria-label="Close">×</button>
+      <div class="modal-player" id="modalPlayer"></div>
+      <h2 class="modal-title" id="modalTitle">Đặt lịch</h2>
+
+      <div class="modal-section">
+        <p class="modal-label">Hình thức</p>
+        <div class="modal-chips" id="modalSessionTypes"></div>
+      </div>
+
+      <div class="modal-section">
+        <p class="modal-label">Thời lượng</p>
+        <div class="duration-row" id="durationRow"></div>
+      </div>
+
+      <form class="booking-form" id="bookingForm">
+        <label>
+          <span>Tên của bạn</span>
+          <input type="text" name="ign" required placeholder="Tên muốn được gọi" maxlength="64" />
+        </label>
+        <label>
+          <span>Discord</span>
+          <input type="text" name="contact" required placeholder="Discord username" />
+        </label>
+        <label>
+          <span>Ghi chú <em>(tuỳ chọn)</em></span>
+          <textarea name="note" rows="2" placeholder="Chủ đề trò chuyện, yêu cầu oncam…"></textarea>
+        </label>
+      </form>
+
+      <button type="button" class="btn btn-glass btn-block" id="confirmBook">Xác nhận đặt lịch</button>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="becomeModal" hidden>
+    <div class="modal modal-sm" role="dialog" aria-modal="true">
+      <button type="button" class="modal-close" id="becomeClose" aria-label="Close">×</button>
+      <h2 class="modal-title">Become an SPlayer</h2>
+      <p class="modal-text">Share your profile, services, and schedule. Build fans and connect with the community.</p>
+      <form class="booking-form" id="becomeForm">
+        <label><span>Display name</span><input type="text" name="name" required placeholder="Your gamer tag" /></label>
+        <label><span>Main service</span><input type="text" name="game" required
+            placeholder="e.g. Voice, Tarot" /></label>
+      </form>
+      <button type="button" class="btn btn-primary btn-block" id="becomeSubmit">Submit application</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden><span id="toastMsg"></span></div>
+
+  <script src="owner-data.js"></script>
+  <script src="co-owner-data.js"></script>
+  <script src="admin-data.js"></script>
+  <script src="supporter-data.js"></script>
+  <script src="vip-player-data.js"></script>
+  <script src="lorette-data.js"></script>
+  <script src="calder-data.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
